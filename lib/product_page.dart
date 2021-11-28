@@ -81,6 +81,7 @@ class _ProductPageState extends State<ProductPage> {
               widget.productCount++;
               GminPrice += minPrice;
               GmaxPrice += maxPrice;
+              addToCart(widget.data['productId']);
               widget.setProductCount(widget.productCount);
             });
           }, child: Icon(Icons.add, color: Colors.black,), backgroundColor: Colors.orange,)

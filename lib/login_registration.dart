@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'consts.dart';
 import 'title_element.dart';
+import 'main.dart';
 import 'package:http/http.dart' as http;
 
 class LoginRegistration extends StatefulWidget {
@@ -263,6 +266,9 @@ class _LoginRegistrationState extends State<LoginRegistration> {
     }.toString());
     print(response.body);
     if (response.statusCode >= 200 && response.statusCode < 300){
+      var userData = jsonDecode(response.body);
+      userID = userData['data']['id'];
+      uuid = userData['data']['uuid'];
       Navigator.pushReplacementNamed(context, '/home');
     } else {
       ScaffoldMessenger.of(context).showSnackBar(

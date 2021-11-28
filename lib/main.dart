@@ -30,7 +30,17 @@ class MyApp extends StatelessWidget {
   }
 }
 
-String userID = '';
+Future<void> addToCart(productID) async{
+  Uri uri = Uri.parse('https://laboratory-msk.online/v1.0/addCart');
+  var response = await http.post(uri, body: {
+    'productId' : productID.toString(),
+    'userId' : userID.toString(),
+    'deliveryId' : '1'
+  });
+  print(response.body);
+}
+
+int userID = 0;
 String uuid = '';
 
 int GminPrice = 0;

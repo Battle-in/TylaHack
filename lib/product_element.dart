@@ -106,6 +106,7 @@ class _ProductElementState extends State<ProductElement> {
                                 widget.productCount++;
                                 GminPrice += minPrice;
                                 GmaxPrice += maxPrice;
+
                                 updatePrice();
                               });
                             },
@@ -235,6 +236,7 @@ class _ProductElementState extends State<ProductElement> {
                                     GminPrice += minPrice;
                                     GmaxPrice += maxPrice;
                                     updatePrice();
+                                    addToCart(widget.data['productId']);
                                   });
                                 },
                                 child: Container(
